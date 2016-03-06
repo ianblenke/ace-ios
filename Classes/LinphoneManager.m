@@ -1522,13 +1522,13 @@ static BOOL libStarted = FALSE;
 }
 void configH264HardwareAcell(bool encode, bool decode){
     	MSFactory *f = linphone_core_get_ms_factory(theLinphoneCore);
-    ms_factory_enable_filter_from_name(f, "VideoToolboxH264encoder", !encode);
-    ms_factory_enable_filter_from_name(f, "VideoToolboxH264decoder", !decode);
+    ms_factory_enable_filter_from_name(f, "VideoToolboxH264encoder", false);
+    ms_factory_enable_filter_from_name(f, "VideoToolboxH264decoder", false);
 
-    ms_factory_enable_filter_from_name(f, "MSOpenH264Enc", encode);
-    ms_factory_enable_filter_from_name(f, "MSOpenH264Dec", !decode);
+    ms_factory_enable_filter_from_name(f, "MSOpenH264Enc", false);
+    ms_factory_enable_filter_from_name(f, "MSOpenH264Dec", true);
     
-    ms_factory_enable_filter_from_name(f, "MSX264Enc", encode);
+    ms_factory_enable_filter_from_name(f, "MSX264Enc", true);
 }
 - (void)createLinphoneCore {
 
